@@ -1,0 +1,26 @@
+DVLSI project: 4 bit CSA
+
+->invented by John von Neumann
+
+->The carry-save unit consists of n full adders(parallel ensemble), each of which computes a single sum and carry bit based solely on the corresponding bits of the three input numbers.
+
+->A carry-save adder is a type of digital adder, used to efficiently compute the sum of three or more binary numbers.
+
+->It differs from other digital adders in that it outputs two (or more) numbers, and the answer of the original summation can be achieved by adding these outputs together.
+
+applications: 
+--> A carry save adder is typically used in a binary multiplier, since a binary multiplier involves addition of more than two binary numbers after multiplication. 
+--> A big adder implemented using this technique will usually be much faster than conventional addition of those numbers.
+
+why is carry look ahead not useful:
+A carry look-ahead adder can reduce the delay. In principle the delay can be reduced so that it is proportional to log n, but for large numbers this is no longer the case, because even when carry look-ahead is implemented, the distances that signals have to travel on the chip increase in proportion to n, and propagation delays increase at the same rate. 
+For example: Once we get to the 512-bit to 2048-bit number sizes that are required in public-key cryptography, carry look-ahead is not of much help.
+
+drawbacks:
+We still do not know whether the result of the addition is larger or smaller than a given number (for instance, we do not know whether it is positive or negative).
+
+->This above point is a drawback when using carry-save adders to implement modular multiplication (multiplication followed by division, keeping the remainder only)
+
+LEFT IS : 1) CIRCUIT AND SIMULATION
+	    2) PPT
+	    3) INFO ON WORKING OF 4 BIT CSA
