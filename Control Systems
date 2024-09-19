@@ -1,0 +1,7 @@
+Temperature control using PID controllers 
+
+A PID controller is a popular feedback control mechanism used for temperature control in various industrial, commercial, and domestic applications. It is a closed-loop control system that continuously receives feedback from temperature sensors and adjusts the input signal to minimize the error between the desired temperature and the actual temperature of the system. 
+
+The PID controller comprises three main terms: proportional, integral, and derivative. The proportional term is proportional to the error between the desired temperature and the actual temperature of the system. The integral term accumulates the error over time to eliminate any steady-state error. The derivative term is proportional to the rate of change of the error and helps to reduce overshoot and oscillations in the system.
+
+PID controllers are widely used for temperature control in various applications, including HVAC (Heating, Ventilation, and Air Conditioning) systems, industrial processes, and laboratory equipment. By providing accurate and responsive control, PID controllers play a crucial role in ensuring that these systems operate efficiently and reliably, while maintaining the desired temperature setpoint.
