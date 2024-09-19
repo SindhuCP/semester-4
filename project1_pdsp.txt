@@ -1,0 +1,96 @@
+DIT USING RECURRSION
+
+function y = fft_recursion(x)
+% Computes the DIT-FFT of the input sequence x using recursion
+
+N = length(x);
+
+if N == 1
+    y = x; % Base case of recursion
+else
+    % Split the input sequence into even and odd-indexed parts
+    xe = x(1:2:N);
+    xo = x(2:2:N);
+    
+    % Compute the DIT-FFT of even and odd-indexed parts using recursion
+    Ye = fft_recursion(xe);
+    Yo = fft_recursion(xo);
+    
+    % Combine the results using twiddle factor multiplication
+    W = exp(-2*pi*1i/N).^(0:N/2-1);
+    y = [Ye + W.*Yo, Ye - W.*Yo];
+end
+
+
+
+
+
+
+
+
+DIF USING RECURSSION
+function X = fft_dif(x)
+% DIF FFT implementation using decimation in frequency algorithm
+% x: input sequence (length should be a power of 2)
+% X: output sequence (length is same as input sequence)
+
+N = length(x);
+if N == 1
+    X = x; % base case
+else
+    xe = x(1:2:N); % even-indexed samples
+    xo = x(2:2:N); % odd-indexed samples
+    Xe = fft_dif(xe); % recursive call for even-indexed samples
+    Xo = fft_dif(xo); % recursive call for odd-indexed samples
+    W = exp(-1i*2*pi/N*[0:N/2-1]); % twiddle factors
+    X1 = Xe + W .* Xo; % butterfly operation for first half of sequence
+    X2 = Xe - W .* Xo; % butterfly operation for second half of sequence
+    X = [X1, X2]; % combine the two halves
+end
+
+
+
+
+
+
+
+
+-> recurssive dit fft and dit fft (radix 2)
+
+	N/2 no. of twiddle factors are required 
+	
+function c=ditfft(x)
+	L=length(x);
+	if L>1
+		L2=L/2;
+		ce=ditfft(x(1:2:L));
+		c0=ditfft(x(2:2:L));
+		tf=exp(-i*2*pi /L).^(0:L2-1);
+		c1= tf.*co;
+		c=[(ce+c1)(ce-c1)];
+	else
+		c=x;
+end
+
+
+
+x = [1,1,1,1];
+disp(diffft(x));
+
+function c = diffft(x)
+L = length(x);
+if L > 1
+    L2 = L/2;
+    ce = x(1:L2);
+    co = x(L2+1:L);
+    CE = diffft(ce);
+    CO = diffft(co);
+    tf = exp(-1i*2*pi/L).^(0:L2-1);
+    c1 = CE + tf.*CO;
+    c2= CE - tf.*CO;
+    c= [(c1,c2)];
+
+else 
+    c=x;
+
+end
