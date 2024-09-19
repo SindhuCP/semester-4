@@ -1,0 +1,23 @@
+DC PRoject : Huffman encoding and decoding 
+-> coding redundancy 
+-> in 1951 :yields the smallest possible number of code symbols per source symbols
+
+-> variable length coding procedure and it acheives error free/ lossless compression as it is reversible 
+For this it exploits only coding and inter-pixel redundancy to achieve compression
+
+->noisless coding theorem 
+->the length of the code should be inversly proportional to its probability of its occurence i.e. symbols which occur more often will have smaller code words
+
+->also the two symbols that occur least frequently will have the same length of the code word
+
+->no ambiguity in decoding 
+
+Steps:
+1) sort the symbols according to decreasing order of their probabilties 
+2) combine the lowest probable symbols to form a composite symbol with probabilty equal to sum of the respective probabilties
+3)repeat step 2 until you are left with only 2 symbols
+4)extract code words from resulting binary tree representations of the code
+
+Example: 8 bit image with 10x10 pixels
+
+matlab the highest is 1 and lowest is 0
